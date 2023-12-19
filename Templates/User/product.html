@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>E-Commerce Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="keywords" content="Armament Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- fonts -->
+<link href="//fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<!-- /fonts -->
+<!-- css -->
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href='static/css/aos.css' rel='stylesheet prefetch' type="text/css" media="all" />
+<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- /css -->
+<!-- js files -->
+<script src="static/js/modernizr.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- /js files -->
+	<style>
+		.producttable{
+		width: 100%;
+
+		}
+		.producttable > tbody > tr > td{
+		text-align: left !important;
+		padding-left: 2% !important;
+
+		}
+.checked {
+        color: orange !important;
+    }
+
+
+
+	</style>
+</head>
+<body>
+<!-- inner banner -->
+<section class="inner-banner">
+	<!-- navigation section -->
+	<div class="navbar-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><h1>E-Commerce Products</h1></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right cl-effect-20">
+						<li class="active"><a href="/Userhome"><span data-hover="Home">Home</span></a></li>
+						<li><a href="/profile"><span data-hover="Profile">Profile</span></a></li>
+						 <li><a href="/userProducts"><span data-hover="View Products">View Products</span></a></li>
+                        <li><a href="/myorder"><span data-hover="View Orders">View Orders</span></a></li>
+                        <li><a href="/"><span data-hover="Logout">Logout</span></a></li>
+					</ul>
+				</div>
+			</nav>
+
+		</div>
+	</div>
+	<!-- /navigation section -->
+	<div class='header'>
+
+	</div>
+</section>
+<!-- /inner banner -->
+<section class="blog-w3ls" >
+    <div class="container" id="productblog">
+		<h3 class="text-center">Products</h3>
+		<div class="row" id="productsMain">
+</div>
+</div>
+<div class="container" id="productview">
+	 <div class="border">
+      <div class="row">
+		  <div class="col-md-3"></div>
+		  <div class="col-md-6" id="prddetails">
+			</div>
+			<div class="col-md-3"></div>
+		 </div>
+</div>
+		<div class="clearfix"></div>
+</div>
+</section>
+
+<!-- footer -->
+<section class="footer-w3ls">
+	<div class="container">
+		<p class="footer-w3-agileits2">&copy; 2022 E-Commerce Products. All Rights Reserved | Design by E-Commerce Products</p>
+	</div>
+</section>
+<!-- /footer -->
+<!-- back to top -->
+<a href="#0" class="cd-top">Top</a>
+<!-- /back to top -->
+<!-- js files -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/SmoothScroll.min.js"></script>
+<script src="static/js/jquery.easing.min.js"></script>
+<script src="static/js/grayscale.js"></script>
+<!-- js for back to top -->
+<script src="static/js/top.js"></script>
+<!-- /js for back to top -->
+<!-- js for inner banner -->
+<script src="static/js/bgfader.js"></script>
+<script>
+
+var myBgFader = $('.header').bgfader([
+  'static/images/inner1.jpg',
+  'static/images/inner3.jpg',
+  'static/images/inner4.jpg',
+], {
+  'timeout': 3000,
+  'speed': 3000,
+  'opacity': 0.4
+})
+myBgFader.start()
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+</script>
+ <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script>
+
+    jQuery(document).ready(function($){
+
+getAllProducts();
+
+    		$("#productview").hide();
+            $("#productblog").show();
+
+$('.table table-hover').each(function(){
+$(this).attr('data-search-term', $(this).text().toLowerCase());
+});
+
+$('.table table-hover').on('keyup', function(){
+
+var searchTerm = $(this).val().toLowerCase();
+
+    $('.table table-hover').each(function(){
+
+        if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+            $(this).show();
+        } else {
+            $(this).hide();
+        }
+
+    });
+
+});
+
+});
+
+function booking(id)
+{
+
+localStorage.setItem("pid", id);
+
+$.ajax({
+            url: "/userbooking",
+            type: 'POST',
+            dataType: 'json',
+            data: {pid: id},
+            success: function (data) {
+            $("#productview").show();
+            $("#productblog").hide();
+            var td="";
+            var cnt = 0;
+for(var i=0;i<data.length;i++){
+
+ td = "<div style=\"padding: 5%; box-shadow: 0px 0px 3px 1px #797a7a;\">\n\
+				  <img src=\"static/images/upload/"+data[i][5]+"\" id=\"img\" style=\"width:50%; margin-left: 21%;\">\n\
+				  <p style=\"text-align: center;margin-top: 4%;font-weight: 700;\">Product Details</p>\n\
+				  <br>\n\
+				  <table class=\"producttable\">\n\
+					  <tr><td><b>Product :</b></td><td id=\"prd\">"+data[i][2]+"</td></tr>\n\
+					  <tr><td style=\"display:none;\"><b>Category :</b></td><td id=\"cat\" style=\"display:none;\">"+data[i][1]+"</td></tr>\n\
+					  <tr><td><b>Price :</b></td><td id=\"pamt\">"+data[i][3]+"</td></tr>\n\
+					  <tr><td><b>Description :</b></td><td id=\"pdes\">"+data[i][4]+"</td></tr>\n\
+					  <tr><td><b>Quantity :</b></td><td><input class=\"form-control\" style = \"width: 40%;\" type=\"text\" onchange=\"calamt('"+data[i][3]+"')\" id=\"prdqty\"></td></tr>\n\
+					  <tr> <td><b>Total Amount :</b></td> <td><p id=\"tamt\"></p></td></tr>\n\
+					  <tr> <td><button type=\"button\" class=\"btn btn-info\" onclick=\"conform('"+data[i][0]+"')\" style =\"margin-left: 92%; margin-top: 11%;\">Conform Booking</button></td></tr>\n\
+				  </table>\n\
+				  </div>";
+
+
+    }
+    $("#prddetails").empty();
+    $("#prddetails").append(td);
+            }
+
+        });
+}
+
+function calamt(amt){
+var qty = $("#prdqty").val();
+var tmat = parseFloat(qty) * parseFloat(amt);
+document.getElementById('tamt').innerHTML = tmat;
+}
+
+function getAllProducts() {
+$.ajax({
+            url: "../ViewProductsFromAjax",
+            dataType: 'json',
+            type: 'GET',
+            data: {},
+            success: function(data) {
+console.log("response ...:",data);
+var td = "";
+            var reviews = "";
+            for(var i=0;i<data.length;i++){
+if(data[i][8] == "1"){
+reviews = '<span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+}else if(data[i][8] == "2"){
+reviews = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+}else if(data[i][8] == "3"){
+reviews = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+}else if(data[i][8] == "4"){
+reviews = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span>';
+}else if(data[i][8] == "5"){
+reviews = '<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>';
+}else{
+reviews = '<span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>';
+}
+ td += '<div class="col-md-4" style="margin-bottom: 3%;" DATA-aos="flip-right">\n\
+			<div style="margin-bottom: 3%;box-shadow: 0px 0px 6px 1px #a3a3a3;padding: 20px;">\n\
+			<div class="grid">\n\
+				<figure class="effect-duke">\n\
+					<img src="static/images/upload/'+data[i][6]+'" alt="img27" id="img" NAME="img"  style="height:250px " class="img-responsive"/>\n\
+					<figcaption>\n\
+					<a href="blogpost.html">VIEW more</a>\n\
+					</figcaption>\n\
+				</figure>\n\
+			</div>\n\
+			<p style="font-style: oblique;" class="blog-p1">'+data[i][0]+'</p>\n\
+				<h4 style="font-weight: 600;">'+data[i][3]+'</h4>\n\
+				<a href="#" style="height: 90px;overflow: auto;" class="blog-link">'+data[i][5]+'</a>\n\
+		<p class="blog-p2">Price : '+data[i][4]+'</p>\n\
+				<div>'+reviews+'</div>\n\
+			<button TYPE="button" class="btn btn-primary" onclick="booking('+data[i][1]+')">Buy NOW</button>\n\
+</div>\n\
+		</div>';
+		}
+    $("#productsMain").empty();
+    $("#productsMain").append(td);
+
+
+
+                }
+            });
+}
+
+
+function conform(pid){
+alert("hii");
+var qty = $("#prdqty").val();
+var cat = document.getElementById('cat').innerHTML;
+alert(cat);
+var tmat = document.getElementById('tamt').innerHTML;
+var prd = document.getElementById('prd').innerHTML;
+var pdes = document.getElementById('pdes').innerHTML;
+var img = document.getElementById('img').innerHTML;
+
+ $.ajax({
+            url: "../ConformBiddingProduct",
+            dataType: 'json',
+            type: 'POST',
+            data: {pid: pid, qty: qty, tmat: tmat, prd: prd, pdes: pdes, img:img, cat:cat},
+            success: function(data) {
+            window.location.reload();
+                }
+            });
+}
+
+
+
+
+</script>
+<!-- /js for inner banner -->
+<!-- js for search button -->
+<script src="static/js/classie.js"></script>
+<script src="static/js/uisearch.js"></script>
+<script>
+	new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!-- /js for search button -->
+<!-- js for bootstrap dropdown -->
+<script src="static/js/index.js"></script>
+<!-- /js for bootstrap dropdown -->
+<script src='static/js/aos.js'></script>
+<script src="static/js/index2.js"></script>
+<!-- /js files -->
+</body>
+</html>
+
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+<!--<td><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></td>\n\-->
+
+<!--.checked {-->
+<!--        color: orange !important;-->
+<!--    }-->
+
+
+<!--if (o.review == "0") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    } else if (o.review == "1") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    } else if (o.review == "2") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    } else if (o.review == "3") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    } else if (o.review == "4") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    } else if (o.review == "5") {-->
+<!--                        da = da + '<tr>\n\-->
+<!--                                        <td>' + o.cnt + '</td>\n\-->
+<!--                                        <td>' + o.company + '</td>\n\-->
+<!--                                        <td>' + o.description + '</td>\n\-->
+<!--                                        <td><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></td>\n\-->
+<!--                                    </tr>';-->
+<!--                    }-->

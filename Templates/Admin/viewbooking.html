@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>E-Commerce Products</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Armament Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- fonts -->
+<link href="//fonts.googleapis.com/css?family=Gruppo" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+<!-- /fonts -->
+<!-- css -->
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
+<link href='static/css/aos.css' rel='stylesheet prefetch' type="text/css" media="all" />
+<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- /css -->
+	<style>
+			table {
+  	counter-reset: section;
+		}
+			.count:before {
+  		counter-increment: section;
+  		content: counter(section);
+		}
+	</style>
+<!-- js files -->
+<script src="static/js/modernizr.js"></script>
+<!-- /js files -->
+</head>
+<body>
+<!-- inner banner -->
+<section class="inner-banner">
+	<!-- navigation section -->
+	<div class="navbar-wrapper">
+		<div class="container">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><h1>E-Commerce Products</h1></a>
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right cl-effect-20">
+					<li class="active"><a href="/adminhome"><span data-hover="Home">Home</span></a></li>
+						<li><a href="/category"><span data-hover="Add Category">Add Category</span></a></li>
+						<li><a href="/Product"><span data-hover="Add Product">Add Product</span></a></li>
+						<li><a href="/adminviewprd"><span data-hover="View Product">View Product</span></a></li>
+						 <li><a href="/userorders"><span data-hover="View Order">View Order</span></a></li>
+                        <li><a href="/userregister"><span data-hover="Registered">Registered</span></a></li>
+                        <li><a href="/"><span data-hover="Logout">Logout</span></a></li>
+					</ul>
+				</div>
+			</nav>
+
+		</div>
+	</div>
+	<!-- /navigation section -->
+	<div class='header'>
+
+	</div>
+</section>
+<!-- /inner banner -->
+<section class="contact-w3ls">
+	<div class="container">
+		<!-- Contact Details Column -->
+		<div class="col-md-4 contact-wthree1" data-aos="zoom-in">
+		</div>
+		<div class="col-md-6 contact-wthree2" data-aos="zoom-in">
+			<div class="col-xs-12">
+				<h3>View Orders</h3>
+			</div>
+			<div class="table-responsive">
+                        <table class="table table-hover" id="product" style="background-color: white;width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px; margin-left: -86px;">
+                            <thead>
+                            <tr>
+                                <th>Sl No</th>
+                                <th>Product Name</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Reviews</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for row in data %}
+                            <tr>
+                                <td class="count"></td>
+                                <td>{{row.3}}</td>
+                                <td>{{row.6}}</td>
+                                <td>{{row.4}}</td>
+                                <td>{{row.5}}</td>
+                                <td>{{row.7}}</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</section>
+<!-- footer -->
+<section class="footer-w3ls">
+	<div class="container">
+		<p class="footer-w3-agileits2">&copy; 2022 E-Commerce Products. All Rights Reserved | Design by E-Commerce Products</p>
+	</div>
+</section>
+<!-- /footer -->
+<!-- back to top -->
+<a href="#0" class="cd-top">Top</a>
+<!-- /back to top -->
+<!-- js files -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/SmoothScroll.min.js"></script>
+<script src="static/js/jquery.easing.min.js"></script>
+<script src="static/js/grayscale.js"></script>
+<!-- js for back to top -->
+<script src="static/js/top.js"></script>
+<!-- /js for back to top -->
+<!-- js for inner banner -->
+<script src="static/js/bgfader.js"></script>
+<script>
+var myBgFader = $('.header').bgfader([
+  'static/images/inner1.jpg',
+  'static/images/inner3.jpg',
+  'static/images/inner4.jpg',
+], {
+  'timeout': 3000,
+  'speed': 3000,
+  'opacity': 0.4
+})
+myBgFader.start()
+</script>
+<!-- /js for inner banner -->
+<!-- js for search button -->
+<script src="static/js/classie.js"></script>
+<script src="static/js/uisearch.js"></script>
+<script>
+	new UISearch( document.getElementById( 'sb-search' ) );
+</script>
+<!-- /js for search button -->
+<!-- js for bootstrap dropdown -->
+<script src="static/js/index.js"></script>
+<!-- /js for bootstrap dropdown -->
+<script src='static/js/aos.js'></script>
+<script src="static/js/index2.js"></script>
+<!-- /js files -->
+</body>
+</html>
